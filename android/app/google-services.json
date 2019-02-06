@@ -1,0 +1,42 @@
+{
+    "project_info": {
+      "project_number": "331564284155",
+      "firebase_url": "https://react-native-speech-rec.firebaseio.com",
+      "project_id": "react-native-speech-rec",
+      "storage_bucket": "react-native-speech-rec.appspot.com"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:331564284155:android:efb101e5dfdc50cb",
+          "android_client_info": {
+            "package_name": "com.rnvr"
+          }
+        },
+        "oauth_client": [
+          {
+            "client_id": "331564284155-flito030ft26pq1118l6fm3rvnfaf5gu.apps.googleusercontent.com",
+            "client_type": 3
+          }
+        ],
+        "api_key": [
+          {
+            "current_key": "AIzaSyB-8TdNwQHZ50Tho1VsJYtqJ7I4TGIP6T8"
+          }
+        ],
+        "services": {
+          "analytics_service": {
+            "status": 1
+          },
+          "appinvite_service": {
+            "status": 1,
+            "other_platform_oauth_client": []
+          },
+          "ads_service": {
+            "status": 2
+          }
+        }
+      }
+    ],
+    "configuration_version": "1"
+  }

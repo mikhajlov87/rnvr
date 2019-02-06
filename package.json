@@ -1,0 +1,31 @@
+{
+  "name": "rnvr",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "android": "yarn clear && cd android/ && ./gradlew clean && cd .. && adb reverse tcp:9090 tcp:9090 && ENVFILE=.env.development react-native run-android",
+    "ios": "yarn clear && ENVFILE=.env.development react-native run-ios --simulator='iPhone SE' ",
+    "es-lint": "eslint src/**/*.js",
+    "clear": "rm -rf $TMPDIR/react-*; rm -rf $TMPDIR/haste-*; rm -rf $TMPDIR/metro-*; watchman watch-del-all; yarn cache clean",
+    "clear-modules": "rm -rf node_modules yarn.lock && yarn && yarn clear"
+  },
+  "dependencies": {
+    "react": "16.6.3",
+    "react-native": "0.58.3",
+    "react-native-firebase": "^5.2.1",
+    "react-native-gesture-handler": "^1.0.15",
+    "react-navigation": "^3.1.4",
+    "reactotron-react-native": "^2.1.5"
+  },
+  "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "24.1.0",
+    "jest": "24.1.0",
+    "metro-react-native-babel-preset": "0.51.1",
+    "react-test-renderer": "16.6.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
