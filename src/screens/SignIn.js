@@ -1,53 +1,87 @@
+// Modules
 import React from 'react';
-import { AsyncStorage, View, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { GoogleSigninButton } from 'react-native-google-signin';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+// Components
+import MainBackgroundImage from '../components/MainBackgroundImage';
+// Actions
+import { googleSignIn, googleSignInPending } from '../store/actions/auth';
+// Selectors
+import { isSigninInProgressSelector, isSignInSelector } from '../store/selectors/auth';
 
 class SignIn extends React.Component {
   static navigationOptions = {
     title: 'Please sign in',
   };
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <Button title="Sign in!" onPress={this._signInAsync} />
-      </View>
-    );
+  static defaultProps = {
+    isSigninInProgress: false,
+  };
+
+  componentDidMount() {
+    if (this.props.isSignIn) {
+      this._redirectToHomeScreen();
+    }
   }
 
-  _signInAsync = async () => {
-    await AsyncStorage.setItem('userToken', 'abc');
+  componentDidUpdate(prevProps) {
+    if (this.props.isSignIn && (prevProps.isSignIn !== this.props.isSignIn)) {
+      this._redirectToHomeScreen();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.props.isSigninInProgress) {
+      this.props.authActions.googleSignInPending(false);
+    }
+  }
+
+  _redirectToHomeScreen = () => {
     this.props.navigation.navigate('App');
   };
-}
-
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Welcome to the app!',
-  };
 
   render() {
     return (
-      <View style={styles.container}>
-        <Button title="Show me more of the app" onPress={this._showMoreApp} />
-        <Button title="Actually, sign me out :)" onPress={this._signOutAsync} />
-      </View>
+      <MainBackgroundImage>
+        <View style={styles.container}>
+          <GoogleSigninButton
+            style={{ width: 192, height: 48 }}
+            size={GoogleSigninButton.Size.Wide}
+            color={GoogleSigninButton.Color.Dark}
+            onPress={this._googleSignIn}
+            disabled={this.props.isSigninInProgress}
+          />
+        </View>
+      </MainBackgroundImage>
     );
   }
 
-  _showMoreApp = () => {
-    this.props.navigation.navigate('Other');
-  };
-
-  _signOutAsync = async () => {
-    await AsyncStorage.clear();
-    this.props.navigation.navigate('Auth');
-  };
+  _googleSignIn = () => {
+    this.props.authActions.googleSignIn();
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
-    
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
   },
 });
 
-export default SignIn;
+function mapStateToProps(state) {
+  return {
+    isSigninInProgress: isSigninInProgressSelector(state),
+    isSignIn: isSignInSelector(state),
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    authActions: bindActionCreators({ googleSignIn, googleSignInPending }, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

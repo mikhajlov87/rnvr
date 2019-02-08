@@ -1,43 +1,36 @@
+// Modules
 import React from 'react';
-import {
-  ActivityIndicator,
-  AsyncStorage,
-  StatusBar,
-  StyleSheet,
-  View,
-} from 'react-native';
-import firebase from 'react-native-firebase';
+import { connect } from 'react-redux';
+import { ActivityIndicator, StatusBar } from 'react-native';
+// Components
+import MainBackgroundImage from '../components/MainBackgroundImage';
+// Selectors
+import { isSignInSelector } from '../store/selectors/auth';
 
 class AuthLoading extends React.Component {
   constructor(props) {
     super(props);
-    this._bootstrapAsync();
+    this._bootstrap(props);
   }
 
-  // Fetch the token from storage then navigate to our appropriate place
-  _bootstrapAsync = async () => {
-    const userToken = await AsyncStorage.getItem('userToken');
-
-    // This will switch to the App screen or Auth screen and this loading
-    // screen will be unmounted and thrown away.
-    this.props.navigation.navigate(userToken ? 'App' : 'Auth');
+  _bootstrap = ({ isSignIn }) => {
+    this.props.navigation.navigate(isSignIn ? 'App' : 'Auth');
   };
 
-  // Render any loading content that you like here
   render() {
     return (
-      <View style={styles.container}>
+      <MainBackgroundImage>
         <ActivityIndicator />
         <StatusBar barStyle="default" />
-      </View>
+      </MainBackgroundImage>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
+function mapStateToProps(state) {
+  return {
+    isSignIn: isSignInSelector(state),
+  };
+}
 
-  },
-});
-
-export default AuthLoading;
+export default connect(mapStateToProps)(AuthLoading);

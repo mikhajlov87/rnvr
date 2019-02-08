@@ -1,0 +1,2 @@
+export const SET_UID = 'SET_UID';
+export const GOOGLE_SIGN_IN_PENDING = 'GOOGLE_SIGN_IN_PENDING';

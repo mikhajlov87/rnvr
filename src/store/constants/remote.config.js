@@ -1,0 +1,1 @@
+export const SET_MAIN_BG_IMAGE_URI = 'SET_MAIN_BG_IMAGE_URI';

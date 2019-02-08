@@ -1,7 +1,11 @@
 // Modules
+import { reactotronRedux } from 'reactotron-redux';
 import Reactotron from 'reactotron-react-native';
+import json from '../../app.json';
 
-export default Reactotron
-  .configure()      // controls connection & communication settings
-  .useReactNative() // add all built-in react native plugins
-  .connect()        // let's connect!
+const reactotron = Reactotron
+  .configure({ name: json.displayName })
+  .use( reactotronRedux() )
+  .connect();
+
+  export default reactotron;

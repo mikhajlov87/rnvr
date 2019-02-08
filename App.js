@@ -1,11 +1,19 @@
 // Modules
-import React from "react";
-import { View, Text, Button } from "react-native";
-import { createStackNavigator, createAppContainer, createSwitchNavigator } from "react-navigation";
+import React from 'react';
+import { createStackNavigator, createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 // Screens
 import HomeScreen from './src/screens/Home';
 import AuthLoadingScreen from './src/screens/AuthLoading';
 import SignInScreen from './src/screens/SignIn';
+// Store
+import configureStore from './src/store';
+// Actions
+import { getMainBgImageUri } from './src/store/actions/remote.config';
+
+const { store, persistor } = configureStore();
+store.dispatch( getMainBgImageUri() );
 
 const AppStack = createStackNavigator({
   Home: HomeScreen,
@@ -35,7 +43,11 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <AppContainer ref={this.navigator} />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <AppContainer ref={this.navigator} />
+        </PersistGate>
+      </Provider>
     );
   }
 }
