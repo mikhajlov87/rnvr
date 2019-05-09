@@ -59,13 +59,17 @@
 		BAD263EF837C4AE3A8723635 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D43108334AF4D6481852069 /* Zocial.ttf */; };
 		C38110926F6B486A8399CEC2 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DCAFCEA1BAEB4A0EBAFC753D /* Octicons.ttf */; };
 		C670FB6660BA48F7870D7BE1 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAD20E3B583C40FE96C1068E /* Entypo.ttf */; };
-		CE4F650F220B90020014C97F /* google_signin_sdk_4_4_0 in Resources */ = {isa = PBXBuildFile; fileRef = CE4F64E6220B90020014C97F /* google_signin_sdk_4_4_0 */; };
 		CE4F6511220B90710014C97F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4F6510220B90710014C97F /* AddressBook.framework */; };
 		CE4F6513220B90850014C97F /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4F6512220B90850014C97F /* SafariServices.framework */; };
 		CE4F6515220B90BA0014C97F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4F6514220B90BA0014C97F /* SystemConfiguration.framework */; };
 		CE4F6517220B90DE0014C97F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4F6516220B90DE0014C97F /* libz.tbd */; };
 		CE7C4FD5220B098900776FAC /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7C4FD4220B091700776FAC /* libRNGoogleSignin.a */; };
+		CE8EC6DF2213AAE100C069B5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8EC6DE2213AAE000C069B5 /* CFNetwork.framework */; };
+		CE8EC6E12213AB1300C069B5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8EC6E02213AB1300C069B5 /* MobileCoreServices.framework */; };
+		CE8EC6E32213AB3200C069B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8EC6E22213AB3200C069B5 /* CoreGraphics.framework */; };
 		CE8F3629220A93A3007DAFC0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE8F3601220A93A3007DAFC0 /* GoogleService-Info.plist */; };
+		CE99F8F7221252C500BFA804 /* libTextToSpeech.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE99F8F5221252A500BFA804 /* libTextToSpeech.a */; };
+		CE99F8F9221255E600BFA804 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE99F8F8221255E600BFA804 /* Speech.framework */; };
 		CECEC458220CE00600CEFC36 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CECEC42D220CDFE000CEFC36 /* libBVLinearGradient.a */; };
 		D0DA3840C16A40AFB78EB948 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4383ECF5F91B48FEAF6F2E36 /* FontAwesome5_Regular.ttf */; };
 		D5A63FB611BF1614635CDBEA /* libPods-rnvr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A38B6C9944455A5FDBDACAD5 /* libPods-rnvr.a */; };
@@ -370,6 +374,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNGestureHandler;
 		};
+		CE99F8F4221252A500BFA804 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE99F8C6221252A500BFA804 /* TextToSpeech.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3A6FB2081D99E12200593599;
+			remoteInfo = TextToSpeech;
+		};
 		CECEC42C220CDFE000CEFC36 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CECEC427220CDFE000CEFC36 /* BVLinearGradient.xcodeproj */;
@@ -446,13 +457,17 @@
 		BF34F1FDE5B5473494A74282 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		C6E80438AC8128FFDDB1C500 /* Pods-rnvrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnvrTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rnvrTests/Pods-rnvrTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C8FCD60621A8487C91664A31 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
-		CE4F64E6220B90020014C97F /* google_signin_sdk_4_4_0 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = google_signin_sdk_4_4_0; path = ../../../../../Downloads/google_signin_sdk_4_4_0; sourceTree = "<group>"; };
 		CE4F6510220B90710014C97F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		CE4F6512220B90850014C97F /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		CE4F6514220B90BA0014C97F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CE4F6516220B90DE0014C97F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		CE7C4FA8220B091700776FAC /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
+		CE8EC6DE2213AAE000C069B5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CE8EC6E02213AB1300C069B5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CE8EC6E22213AB3200C069B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CE8F3601220A93A3007DAFC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE99F8C6221252A500BFA804 /* TextToSpeech.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TextToSpeech.xcodeproj; path = "../node_modules/react-native-tts/ios/TextToSpeech.xcodeproj"; sourceTree = "<group>"; };
+		CE99F8F8221255E600BFA804 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 		CECEC427220CDFE000CEFC36 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		D358A0A7B6984177137E9AD2 /* Pods-rnvr-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnvr-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rnvr-tvOS/Pods-rnvr-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		DB03337EABFC979280F2E096 /* libPods-rnvr-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnvr-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -482,9 +497,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				CE8EC6E32213AB3200C069B5 /* CoreGraphics.framework in Frameworks */,
+				CE8EC6E12213AB1300C069B5 /* MobileCoreServices.framework in Frameworks */,
+				CE4F6515220B90BA0014C97F /* SystemConfiguration.framework in Frameworks */,
+				CE8EC6DF2213AAE100C069B5 /* CFNetwork.framework in Frameworks */,
+				CE99F8F9221255E600BFA804 /* Speech.framework in Frameworks */,
+				CE99F8F7221252C500BFA804 /* libTextToSpeech.a in Frameworks */,
 				CECEC458220CE00600CEFC36 /* libBVLinearGradient.a in Frameworks */,
 				CE4F6517220B90DE0014C97F /* libz.tbd in Frameworks */,
-				CE4F6515220B90BA0014C97F /* SystemConfiguration.framework in Frameworks */,
 				CE4F6513220B90850014C97F /* SafariServices.framework in Frameworks */,
 				CE4F6511220B90710014C97F /* AddressBook.framework in Frameworks */,
 				CE7C4FD5220B098900776FAC /* libRNGoogleSignin.a in Frameworks */,
@@ -500,7 +521,6 @@
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
-				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				94134B0CD7A54F12B29185E8 /* libRNGestureHandler.a in Frameworks */,
 				6AB7545DCA1E45AFB3569631 /* libRNFirebase.a in Frameworks */,
 				D5A63FB611BF1614635CDBEA /* libPods-rnvr.a in Frameworks */,
@@ -656,6 +676,10 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE8EC6E22213AB3200C069B5 /* CoreGraphics.framework */,
+				CE8EC6E02213AB1300C069B5 /* MobileCoreServices.framework */,
+				CE8EC6DE2213AAE000C069B5 /* CFNetwork.framework */,
+				CE99F8F8221255E600BFA804 /* Speech.framework */,
 				CE4F6516220B90DE0014C97F /* libz.tbd */,
 				CE4F6514220B90BA0014C97F /* SystemConfiguration.framework */,
 				CE4F6512220B90850014C97F /* SafariServices.framework */,
@@ -692,6 +716,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				CE99F8C6221252A500BFA804 /* TextToSpeech.xcodeproj */,
 				CECEC427220CDFE000CEFC36 /* BVLinearGradient.xcodeproj */,
 				CE7C4FA8220B091700776FAC /* RNGoogleSignin.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
@@ -740,7 +765,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				CE4F64E6220B90020014C97F /* google_signin_sdk_4_4_0 */,
 				CE8F3601220A93A3007DAFC0 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* rnvr */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -831,6 +855,14 @@
 			isa = PBXGroup;
 			children = (
 				CE8F3586220A8B51007DAFC0 /* libRNGestureHandler.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE99F8C7221252A500BFA804 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE99F8F5221252A500BFA804 /* libTextToSpeech.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -943,7 +975,11 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = T89967592G;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = T89967592G;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1031,6 +1067,10 @@
 				{
 					ProductGroup = CE7C4FA9220B091700776FAC /* Products */;
 					ProjectRef = CE7C4FA8220B091700776FAC /* RNGoogleSignin.xcodeproj */;
+				},
+				{
+					ProductGroup = CE99F8C7221252A500BFA804 /* Products */;
+					ProjectRef = CE99F8C6221252A500BFA804 /* TextToSpeech.xcodeproj */;
 				},
 				{
 					ProductGroup = CECEC4A3220CED9000CEFC36 /* Products */;
@@ -1328,6 +1368,13 @@
 			remoteRef = CE8F3585220A8B51007DAFC0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		CE99F8F5221252A500BFA804 /* libTextToSpeech.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTextToSpeech.a;
+			remoteRef = CE99F8F4221252A500BFA804 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		CECEC42D220CDFE000CEFC36 /* libBVLinearGradient.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1364,7 +1411,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				CE4F650F220B90020014C97F /* google_signin_sdk_4_4_0 in Resources */,
 				CE8F3629220A93A3007DAFC0 /* GoogleService-Info.plist in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				83B31FCA242A4577828A046E /* AntDesign.ttf in Resources */,
@@ -1616,6 +1662,7 @@
 			baseConfigurationReference = C6E80438AC8128FFDDB1C500 /* Pods-rnvrTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = T89967592G;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1651,6 +1698,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = T89967592G;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
@@ -1684,6 +1732,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = T89967592G;
+				ENABLE_TESTABILITY = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
@@ -1692,12 +1742,13 @@
 				);
 				INFOPLIST_FILE = rnvr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.procoders.rnvr;
 				PRODUCT_NAME = rnvr;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1710,6 +1761,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T89967592G;
+				ENABLE_TESTABILITY = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
@@ -1718,12 +1771,13 @@
 				);
 				INFOPLIST_FILE = rnvr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.procoders.rnvr;
 				PRODUCT_NAME = rnvr;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

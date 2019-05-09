@@ -6,6 +6,7 @@ import * as toastTypes from '../constants/toast';
 const initialState = Map({
   type: null, // e.g success || error
   message: '',
+  description: '',
 });
 
 export default function(state = initialState, action) {

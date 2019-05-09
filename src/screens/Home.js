@@ -11,10 +11,12 @@ import MainBackgroundImage from '../components/MainBackgroundImage';
 import RecButton from '../components/RecButton';
 // Actions
 import * as speechActions from '../store/actions/speech';
+import * as adviseActions from '../store/actions/advise';
 // Selectors
 import {
   speechStartedSelector, speechRecognizedSelector, speechResultsSelector, speechRecordingSelector,
 } from '../store/selectors/speech';
+import { advisesSelector } from '../store/selectors/advise';
 // Helpers
 import { moderateScale, scale } from '../helpers/scaling';
 
@@ -29,6 +31,10 @@ class Home extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  componentDidMount() {
+    this._getAdvises();
+  }
 
   componentWillUnmount() {
     this.props.speechActions.removeAllListeners();
@@ -51,9 +57,10 @@ class Home extends React.Component {
             locations={[0, 0.5 , 1]}
           >
             <H1 style={styles.header}>
-              Please tell me your{'\n'}
-              Homework, Question or{'\n'}
-              Concern
+              Please share questions,{'\n'}
+              concerns and advice.{'\n'}
+              Humbly yours,{'\n'}
+              David
             </H1>
           </LinearGradient>
           <RecButton
@@ -99,10 +106,14 @@ class Home extends React.Component {
   }
 
   _saveData = () => {
-    const { speechResults, speechActions } = this.props;
+    const { speechResults, speechActions, advises } = this.props;
     if (speechResults.length > 0) {
-      speechActions.sendRecordResults(speechResults);
+      speechActions.sendRecordResults(speechResults, advises);
     }
+  }
+
+  _getAdvises = () => {
+    this.props.adviseActions.getAdvises();
   }
 }
 
@@ -134,12 +145,14 @@ function mapStateToProps(state) {
     speechRecognized: speechRecognizedSelector(state),
     speechResults: speechResultsSelector(state),
     speechRecording: speechRecordingSelector(state),
+    advises: advisesSelector(state),
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     speechActions: bindActionCreators(speechActions, dispatch),
+    adviseActions: bindActionCreators(adviseActions, dispatch),
   };
 }
 

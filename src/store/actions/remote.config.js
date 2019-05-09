@@ -22,9 +22,7 @@ export function getMainBgImageUri() {
         );
       })
       .catch((err) => {
-        dispatch(
-          showToastMessage({ type: 'error', message: err.message }),
-        );
+        dispatch( showToastMessage({ type: 'danger', message: 'Error!', description: err.message }) );
       });
   }
 }

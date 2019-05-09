@@ -1,6 +1,10 @@
 // Modules
 import Voice from 'react-native-voice';
 import firebase from 'react-native-firebase';
+import find from 'lodash/find';
+import filter from 'lodash/filter';
+import map from 'lodash/map';
+import join from 'lodash/join';
 // Constants
 import * as speechTypes from '../constants/speech';
 // Helpers
@@ -13,7 +17,7 @@ export function removeAllListeners() {
     Voice.destroy()
       .then(Voice.removeAllListeners)
       .catch(function(err) {
-        dispatch( showToastMessage({ type: 'error', message: err.message }) );
+        dispatch( showToastMessage({ type: 'danger', message: err.message, description: '' }) );
       });
   }
 }
@@ -43,7 +47,7 @@ export function onStartRecognition(lang) {
     dispatch( startRecognition() );
     Voice.start(lang)
       .catch(function(err) {
-        dispatch( showToastMessage({ type: 'error', message: err.message }) );
+        dispatch( showToastMessage({ type: 'danger', message: 'Error!', description: err.message }) );
         dispatch( stopRecording() );
       });
   }
@@ -56,32 +60,52 @@ export function stopRecording() {
         dispatch( setRecording(false) );
       })
       .catch(function(err) {
-        dispatch( showToastMessage({ type: 'error', message: err.message }) );
+        dispatch( showToastMessage({ type: 'danger', message: 'Error!', description: err.message }) );
         dispatch( setRecording(false) );
       });
   }
 }
 
-export function sendRecordResults(results = []) {
+export function sendRecordResults(results = [], advises = []) {
   return function(dispatch) {
-      const currentUser = firebase.auth().currentUser;
-      firebase.firestore()
-        .collection('users')
-        .doc('messages')
-        .update({
-          items: firebase.firestore.FieldValue.arrayUnion({
-            name: currentUser.displayName || null,
-            phone: currentUser.phone || null,
-            uid: currentUser.uid || null,
-            text: results[0],
-            // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-          }),
-        })
-        .then(function() {
-          dispatch( showToastMessage({ type: 'success', message: 'Done!' }) );
-        })
-        .catch(function(err) {
-          dispatch( showToastMessage({ type: 'error', message: err.message }) );
+    const currentUser = firebase.auth().currentUser;
+    firebase.firestore()
+      .collection('users')
+      .doc('messages')
+      .update({
+        items: firebase.firestore.FieldValue.arrayUnion({
+          name: currentUser.displayName || null,
+          phone: currentUser.phone || null,
+          uid: currentUser.uid || null,
+          text: results[0],
+          // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        }),
+      })
+      .then(function() {
+        const message = results[0] || '';
+
+        const filteredAdvises = filter(advises, function({ keyword }) {
+          return message.includes(keyword);
         });
+
+        const advisesArray = map(filteredAdvises, 'advise');
+
+        const text = join(advisesArray, ' ');
+
+        if (text) {
+          dispatch( showToastMessage({ type: 'success', message: 'Suggestion!', description: text }) );
+        } else {
+          const defaultMessage = find(advises, ['keyword', 'EMPTY (no tag words)']);
+
+          if (defaultMessage) {
+            dispatch( showToastMessage({ type: 'success', message: 'Suggestion!', description: defaultMessage.advise }) );
+          } else {
+            dispatch( showToastMessage({ type: 'success', message: 'Done!', description: '' }) );
+          }
+        }
+      })
+      .catch(function(err) {
+        dispatch( showToastMessage({ type: 'danger', message: 'Error!', description: err.message }) );
+      });
   }
 }

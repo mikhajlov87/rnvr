@@ -20,13 +20,21 @@ export const toastTypeSelector = createSelector(
   }
 );
 
+export const toastDescriptionSelector = createSelector(
+  toastStateSelector,
+  function(toast) {
+    return get(toast, 'description');
+  }
+);
+
 export const toastSelector = createSelector(
   toastTypeSelector,
   toastMessageSelector,
-  function(type, message) {
+  toastDescriptionSelector,
+  function(type, message, description) {
     if (!type || !message) {
       return null;
     }
-    return { type, message };
+    return { type, message, description };
   }
 );

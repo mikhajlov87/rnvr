@@ -33,7 +33,7 @@ export function googleSignIn() {
       dispatch( setUid(firebaseUserCredential.user.uid) );
     } catch (err) {
       dispatch( googleSignInPending(false) );
-      dispatch( showToastMessage({ type: 'error', message: err.message }) );
+      dispatch( showToastMessage({ type: 'danger', message: 'Error!', description: err.message }) );
     }
   }
 }
