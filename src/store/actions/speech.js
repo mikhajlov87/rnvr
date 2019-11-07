@@ -70,16 +70,13 @@ export function sendRecordResults(results = [], advises = []) {
   return function(dispatch) {
     const currentUser = firebase.auth().currentUser;
     firebase.firestore()
-      .collection('users')
-      .doc('messages')
-      .update({
-        items: firebase.firestore.FieldValue.arrayUnion({
-          name: currentUser.displayName || null,
+      .collection('responsibility')
+      .add({
+          user_name: currentUser.displayName || null,
           phone: currentUser.phone || null,
           uid: currentUser.uid || null,
-          text: results[0],
-          // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        }),
+          message_text: results[0],
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       })
       .then(function() {
         const message = results[0] || '';

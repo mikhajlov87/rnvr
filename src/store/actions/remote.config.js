@@ -13,7 +13,7 @@ function setMainBgImageUri(uri) {
 
 export function getMainBgImageUri() {
   return function(dispatch) {
-    firebase.config().fetch()
+    firebase.config().fetch(0)
       .then(() => firebase.config().activateFetched())
       .then(() => firebase.config().getValue('rnvr_bg_image'))
       .then((data) => {
